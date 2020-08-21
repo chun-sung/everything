@@ -1,0 +1,22 @@
+<%- include('header.ejs')%>
+<!-- main section start-->
+
+<h1 class="text-center">Membership plz..</h1>
+<form action="/membership" method="POST" class="loginForm bg-primary text-right">    
+    <p>
+        <label for="id">ID</label><input id="id" type="text" name="id" required>    
+    </p>
+    <p>
+        <label for="password">Password</label><input id="password" type="password" name="password" required>    
+    </p>
+    <p>
+        <label for="password2">Validation</label><input id="password2" type="password" name="password2" required>    
+    </p>
+    <p>
+        <label for="email">E-mail</label><input id="email" type="text" name="email" required>    
+    </p>
+    <input type="submit" value="확인">&nbsp;&nbsp;<br>&nbsp;    
+</form>
+
+<!-- main section end-->    
+<%- include('footer.ejs') %>

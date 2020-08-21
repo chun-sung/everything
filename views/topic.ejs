@@ -1,0 +1,58 @@
+<%- include('header.ejs')%>
+<%- include('searchbar.ejs')%>
+<!-- main section start-->
+
+<h1 class="text-center">Today New Topic</h1>
+
+<div class="wrapper" style="width: 280px; margin: 0 auto;">
+    <ol class="col-sm-12">
+        <% for(let topic of topics){ %>
+        <li><a href="/topic/<%= topic.id %>"><%= topic.title %></a></li>       
+        <% } %>
+    </ol>
+    <article>     
+        <div class="util">
+            <a class="btn" href="/add">쓰기</a>
+            <a class="btn" href="/upload">file upload</a>
+            <% if(num){ %>
+            <!-- 글수정: 아래처럼 해당 글의 id값을 물고 라우트 되어야 함 -->
+            <a class="btn" href="/edit/<%= num %>">수정</a>   
+                <% if(!user_id == ''){ %>
+                <a class="btn-delete" href="/delete/<%= num %>">삭제</a>          
+                <% } %>
+            <% } %>
+        </div>
+        <% if(!num){ %>    
+            <!-- <h1>HOT Topic</h1>                 -->
+        <% } else { %>  
+            <p>
+                <h5><%= topics[num-1].title %></h5>
+                <p><%= topics[num-1].description %></p>
+                <h7>by <%= topics[num-1].author%></h7>                   
+            </p>          
+        <% } %> 
+    </article>
+    <nav>
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+</div>
+
+
+<!-- main section end-->    
+<%- include('footer.ejs') %>
